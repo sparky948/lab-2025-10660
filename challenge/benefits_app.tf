@@ -12,10 +12,10 @@
 module "finance_app" {
   source = "../../terraform-modules/app-registration"
 
-  display_name                  = "Finance-App"
-  description                   = "Finance application migrated from SiteMinder"
-  sign_in_audience              = "AzureADMyOrg"
-  graph_api_bearer_token        = var.graph_api_bearer_token
+  display_name           = "Finance-App"
+  description            = "Finance application migrated from SiteMinder"
+  sign_in_audience       = "AzureADMyOrg"
+  graph_api_bearer_token = var.graph_api_bearer_token
 
   application_owners = [
     "john.powell@va.gov"
