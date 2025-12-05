@@ -1,12 +1,5 @@
-
----
-
-## 🧱 `challenge/benefits_app.tf` (starter for candidates)
-
-```hcl
 ##############################################################################
-# Application Registration: Benefits-App
-# Starter Terraform file for candidate challenge
+# Solution: Benefits-App Entra Application Registration
 ##############################################################################
 
 module "benefits_app" {
@@ -22,8 +15,45 @@ module "benefits_app" {
     "john.powell@va.gov"
   ]
 
-  # TODO: Configure SAML SSO settings (identifier, reply URL, NameID format)
-  # TODO: Configure optional claims (uid, region, level)
-  # TODO: Configure app roles (BenefitsUser)
-  # TODO: Configure any assignments if your module supports them
+  # SAML SSO configuration
+  saml_single_sign_on = {
+    identifier_uri = "urn:va:benefitsapp"
+    reply_url      = "https://benefits.va.gov/sso/saml/consume"
+    name_id_format = "emailAddress"
+  }
+
+  # Optional claims for SAML token
+  optional_claims = {
+    saml = [
+      {
+        name   = "uid"
+        source = "employeeId"
+      },
+      {
+        name   = "region"
+        source = "extension_employeeRegion"
+      },
+      {
+        name   = "level"
+        source = "extension_authLevel"
+      }
+    ]
+  }
+
+  # Application Roles
+  app_roles = [
+    {
+      display_name         = "BenefitsUser"
+      description          = "Standard benefits user"
+      value                = "BenefitsUser"
+      allowed_member_types = ["User"]
+    }
+  ]
+
+  # Example group assignments, if supported by the module
+  assignments = {
+    groups = [
+      data.azuread_group.benefits_users.object_id
+    ]
+  }
 }
