@@ -81,7 +81,7 @@ Conditional Access enforcement
 
 TLS termination and security considerations
 
-Provide a diagram or verbal walkthrough.
+Provide a diagram or verbal walkthrough using: https://www.drawio.com/
 
 ## 🧩 Exercise 3 – Terraform SAML Configuration
 
@@ -98,7 +98,7 @@ optional_claims.saml (uid, region, level)
 
 app_roles → BenefitsUser
 
-Group assignments (if your module supports them)
+Group assignments
 
 ## 🧩 Exercise 4 – Graph API Manifest Patch
 
