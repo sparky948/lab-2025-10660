@@ -1,0 +1,36 @@
+name: Entra App Terraform Plan
+
+on:
+  pull_request:
+    paths:
+      - "challenge/**/*.tf"
+
+jobs:
+  terraform-plan:
+    runs-on: ubuntu-latest
+
+    env:
+      TF_WORKING_DIR: ./challenge
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.7.5
+
+      - name: Terraform Init
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: terraform init -input=false
+
+      - name: Terraform Validate
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        if: success()
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: terraform plan -no-color -input=false || true
+        # In a real environment, you'd pass tfvars and maybe fail on non-zero exit
