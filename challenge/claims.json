@@ -1,0 +1,16 @@
+{
+  "claims": [
+    {
+      "name": "uid",
+      "source": "employeeId"
+    },
+    {
+      "name": "region",
+      "source": "extension_employeeRegion"
+    },
+    {
+      "name": "level",
+      "source": "extension_authLevel"
+    }
+  ]
+}
