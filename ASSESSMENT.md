@@ -24,7 +24,7 @@ challenge/benefits_app.tf
 challenge/claims.json
 tools/Set-FakeGraphToken.ps1
 
-Exercise 1 – Configure a SAML App in Entra Portal (Hands-On)
+## Exercise 1 – Configure a SAML App in Entra Portal (Hands-On)
 
 Goal: Validate your ability to configure a SAML app and map claims correctly.
 
@@ -52,7 +52,7 @@ Add uid + region claims
 
 Add a group claim filtered to security groups
 
-🧩 Exercise 2 – Header-Based SSO Migration (App Proxy)
+## 🧩 Exercise 2 – Header-Based SSO Migration (App Proxy)
 
 Goal: Evaluate your ability to migrate legacy SiteMinder applications.
 
@@ -65,7 +65,7 @@ SM_USER: <user UPN>
 
 It cannot be modified to support SAML/OIDC.
 
-Task
+## Task
 
 Design a migration using Entra Application Proxy.
 
@@ -83,7 +83,7 @@ TLS termination and security considerations
 
 Provide a diagram or verbal walkthrough.
 
-🧩 Exercise 3 – Terraform SAML Configuration
+## 🧩 Exercise 3 – Terraform SAML Configuration
 
 Open:
 
@@ -100,14 +100,14 @@ app_roles → BenefitsUser
 
 Group assignments (if your module supports them)
 
-🧩 Exercise 4 – Graph API Manifest Patch
+## 🧩 Exercise 4 – Graph API Manifest Patch
 
 Use terracurl_request or your module equivalent to PATCH:
 
 api.acceptMappedClaims = true
 
 
-Requirements:
+## Requirements:
 
 Must reference the application object ID
 
@@ -117,7 +117,7 @@ Must include depends_on
 
 Should include destroy_skip
 
-🧩 Exercise 5 – SAML Troubleshooting
+## 🧩 Exercise 5 – SAML Troubleshooting
 
 Error provided:
 
@@ -136,7 +136,7 @@ How you reconcile portal vs SP metadata differences
 
 Why binding matters (POST/Redirect)
 
-🎯 What We Evaluate
+### 🎯 What We Evaluate
 
 We look for:
 
@@ -154,7 +154,7 @@ Communication & technical clarity
 
 We do not expect memorization.
 
-End of Assessment
+### End of Assessment
 
 Good luck — and talk through your reasoning as you go.
 We are evaluating your thought process, not just the final output.
